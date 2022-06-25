@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <th class="text-start">Symbol</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Transacted</th>
+        </thead>
+        <tbody>
+            {% for user in users%}
+            <tr>
+                <td class="text-start">{{user["symbol"]}}</td>
+                <td class="text-end">{{user["shares"]}}</td>
+                <td class="text-end">{{user["price"] | usd}}</td>
+                <td class="text-end">{{user["date"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}
